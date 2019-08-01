@@ -8,6 +8,7 @@
     }
     </style>
     <body>
+      {% for post in posts %}
         <div>
             <h1><a href="/">Blog Django Girls</a></h1>
         </div>
@@ -24,5 +25,6 @@
             <h2><a href="">BTSYM(Brazilian Technology Symposium) 2018</a></h2>
             <p>  Medidor residencial não-invasivo de baixo custo para análise do consumo de energia elétrica</p>
         </div>
+        {% endfor %}
     </body>
 </html>
