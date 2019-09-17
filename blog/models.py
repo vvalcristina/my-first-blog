@@ -1,17 +1,17 @@
-from django.conf import settings
+# -*- coding: utf-8 -*-
 from django.db import models
-from django.utils import timezone
+from django.urls import reverse_lazy
 
-class Post(models.Model):
-    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    title = models.CharField(max_length=200)
-    text = models.TextField()
-    created_date = models.DateTimeField(default=timezone.now)
-    published_date = models.DateTimeField(blank=True, null=True)
+class Inscricao(models.Model):
+    nome = models.CharField(max_length=100)
+    cpf = models.CharField(max_length=11, unique=True)
+    idade = models.IntegerField()
+    email = models.EmailField(unique=True)
+    telefone = models.CharField(max_length=20, blank=True)
+    criado= models.DateTimeField('Criado em', auto_now_add=True)
 
-    def publish(self):
-        self.published_date = timezone.now()
-        self.save()
+    class Meta:
+        ordering = ('criado',)
 
     def __str__(self):
-        return self.title
+        return self.nome

@@ -1,8 +1,8 @@
 from django import forms
-from .models import Post
+from .models import Inscricao
 
-class PostForm(forms.ModelForm):
-    
+class InscricaoForm(forms.ModelForm):
+
     class Meta:
-        model = Post
-        fields = ('title', 'text',)
+        model = Inscricao
+        fields = '__all__'
