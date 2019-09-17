@@ -1,7 +1,8 @@
 from django.urls import path
-from .views import Criar,Lista
+from .views import index, cadastro, lista
 
 urlpatterns = [
-    path('cadastro/', Criar.as_view(), name='cadastro'),
-    path('lista/', Lista.as_view(), name='lista'),
+    path('', index),
+    path('cadastro/', cadastro),
+    path('lista/', lista),
 ]

@@ -1,18 +1,23 @@
+from django.http import HttpResponse
 from django.shortcuts import render
-from django.views.generic import CreateView,ListView
 
-from blog.models import Inscricao
-from blog.forms import InscricaoForm
+def index(request):
+    context = {
+        "title": "Página principal",
+        "content": "Bem-vindo a página principal"
+    }
+    return render(request, "cadastro/index.html", context)
 
-def home(request):
-    return render(request,'index.html')
+def cadastro(request):
+    context = {
+        "title": "Página sobre",
+        "content": "Bem-vindo a página sobre"
+    }
+    return render(request, "cadastro/cadastro.html", context)
 
-class Criar(CreateView):
-    template_name= 'cadastro.html'
-    model = Inscricao
-
-
-class Lista(ListView):
-    template_name = 'lista.html'
-    model = Inscricao
-    context_object= 'nome'
+def lista(request):
+    context = {
+        "title": "Página de contato",
+        "content": "Bem-vindo a página de contato"
+    }
+    return render(request, "cadastro/lista.html", context)
